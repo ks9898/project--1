@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ABC College of Technology</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#f4f6fb;--surface:#fff;--ink:#101a33;--muted:#55607a;--line:#dbe1ee;
+  --accent:#2f4bff;--accent-ink:#fff;--hot:#ff6b4a;--hero:#101a33;--hero-ink:#fff;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1220;--surface:#141c30;--ink:#eef1fa;--muted:#9aa5c0;--line:#25304c;
+  --accent:#7d90ff;--accent-ink:#0c1220;--hot:#ff8366;--hero:#141c30;--hero-ink:#fff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c1220;--surface:#141c30;--ink:#eef1fa;--muted:#9aa5c0;--line:#25304c;--accent:#7d90ff;--accent-ink:#0c1220;--hot:#ff8366;--hero:#141c30;--hero-ink:#fff;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 Figtree,system-ui,sans-serif;max-width:100%;overflow-x:hidden}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.08;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--hot);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0}
+.logo{font:800 1.2rem "Bricolage Grotesque",sans-serif;text-decoration:none;display:flex;align-items:center;gap:.55rem}
+.logo i{display:grid;place-items:center;width:2rem;height:2rem;border-radius:9px;background:var(--accent);color:var(--accent-ink);font-style:normal;font-size:.8rem}
+nav{display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none}
+nav a{padding:.45rem .8rem;border-radius:999px;text-decoration:none;font-weight:500;font-size:.92rem;color:var(--muted);white-space:nowrap}
+nav a:hover{background:var(--surface);color:var(--ink)}
+@media(max-width:720px){.bar{flex-direction:column;align-items:flex-start;gap:.4rem}nav{width:100%}}
+
+.hero{background:var(--hero);color:var(--hero-ink);padding:clamp(3rem,9vw,6.5rem) 0 clamp(3rem,8vw,5rem);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-8rem;top:-6rem;width:26rem;height:26rem;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--accent),transparent 68%);opacity:.55}
+.hero .wrap{position:relative;z-index:1}
+.pill{display:inline-block;background:var(--hot);color:#101a33;font-weight:600;font-size:.85rem;padding:.35rem .85rem;border-radius:999px;margin-bottom:1.4rem}
+h1{font-size:clamp(2.5rem,8.5vw,5.6rem);font-weight:800;max-width:14ch}
+.hero p{max-width:52ch;font-size:1.1rem;opacity:.85;margin:1.4rem 0 2rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;padding:.85rem 1.4rem;border-radius:12px;font-weight:600;text-decoration:none;background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;border:1.5px solid currentColor;color:inherit}
+.btn:hover{filter:brightness(1.08)}
+
+section{padding:clamp(3rem,7vw,5rem) 0}
+h2{font-size:clamp(1.8rem,5vw,2.8rem);margin-bottom:1rem}
+.lead{color:var(--muted);max-width:60ch;font-size:1.08rem;margin:0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:2rem}
+.facts div{border-left:3px solid var(--accent);padding-left:.9rem}
+.facts b{display:block;font:800 1.5rem "Bricolage Grotesque",sans-serif}
+.facts span{color:var(--muted);font-size:.92rem}
+
+.courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:2rem}
+.course{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.course:nth-child(1),.course:nth-child(3){border-top:5px solid var(--accent)}
+.course:nth-child(2),.course:nth-child(4){border-top:5px solid var(--hot)}
+.course small{color:var(--muted);font-weight:500}
+.course h3{font-size:1.35rem}
+
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:start}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+.news{list-style:none;margin:1.5rem 0 0;padding:0;counter-reset:n}
+.news li{counter-increment:n;display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.news li::before{content:counter(n);flex:none;display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:.9rem}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.6rem}
+.panel h3{font-size:1.4rem;margin-bottom:.4rem}
+.panel p{color:var(--muted);margin:.3rem 0 1.1rem}
+.panel .btn{width:100%;text-align:center}
+
+footer{border-top:1px solid var(--line);padding:2rem 0 2.5rem;color:var(--muted);text-align:center;font-size:.92rem}
+footer nav{justify-content:center;margin-bottom:.6rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#home"><i>ABC</i>ABC College</a>
+    <nav aria-label="Main">
+      <a href="#home">Home</a><a href="#about">About Us</a><a href="#courses">Courses</a><a href="#admission">Admission</a><a href="#contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <div class="hero">
+    <div class="wrap">
+      <span class="pill">Admission open for 2026–27</span>
+      <h1>Welcome to ABC College</h1>
+      <p>ABC College of Technology is a leading institution providing quality education in Computer Science, Information Technology and Management.</p>
+      <div class="btns">
+        <a class="btn" href="#admission">Apply now</a>
+        <a class="btn ghost" href="#courses">Explore courses</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>Learn to build what’s next</h2>
+      <p class="lead">From first line of code to first job, we pair strong fundamentals with hands-on projects, labs and internships.</p>
+      <div class="facts">
+        <div><b>4</b><span>Degree programs</span></div>
+        <div><b>UG + PG</b><span>Bachelor’s and Master’s</span></div>
+        <div><b>Annual</b><span>Technical Fest</span></div>
+        <div><b>Internships</b><span>Open for registration</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" style="padding-top:0">
+    <div class="wrap">
+      <h2>Our Courses</h2>
+      <div class="courses">
+        <article class="course"><small>Undergraduate</small><h3>Bachelor of Computer Applications</h3><span>BCA</span></article>
+        <article class="course"><small>Postgraduate</small><h3>Master of Computer Applications</h3><span>MCA</span></article>
+        <article class="course"><small>Undergraduate</small><h3>B.Tech Computer Science</h3><span>B.Tech</span></article>
+        <article class="course"><small>Postgraduate</small><h3>M.Tech Computer Science</h3><span>M.Tech</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="admission" style="padding-top:0">
+    <div class="wrap split">
+      <div>
+        <h2>Latest News</h2>
+        <ol class="news">
+          <li>Admission open for 2026–27</li>
+          <li>Annual Technical Fest will be held in September</li>
+          <li>Registration open for Internship Program</li>
+        </ol>
+      </div>
+      <div class="panel" id="contact">
+        <h3>Ready to join?</h3>
+        <p>Pick your course, send your details and our admissions team will get back to you.</p>
+        <a class="btn" href="mailto:admissions@abccollege.edu">Contact admissions</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="#home">Home</a><a href="#about">About Us</a><a href="#courses">Courses</a><a href="#admission">Admission</a><a href="#contact">Contact Us</a></nav>
+    © 2026 ABC College of Technology
+  </div>
+</footer>
+</body>
+</html>
